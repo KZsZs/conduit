@@ -14,15 +14,23 @@ címke megadásával
 6. Címkézés: Cikkek létrehozásakor lehetőség van a tartalom címkézésére, illetve a címkézett tartalmak listázásánál azok
 szűrésére a címkék alapján
 
-7. Cikkek megtekintése: bejelentkezett felhasználóként a főoldalon lehetőség van megtekinteni a magunk vagy mások által
+7. Cikkek kilistázása: bejelentkezett felhasználóként a főoldalon lehetőség van megtekinteni a magunk vagy mások által
 létrehozott tartalmakat kilistázott formában
 
 8. Cikkek kilistázása szerző alapján: egy szerző nevére kattintva kilistázásra kerülnek az általa létrehozott tartalmak
 
-9. Kommentelés: Egy cikk megtekintésekor lehetőség van kommentelni a tartalomhoz
+9. Cikk megtekintése: egy kilistázott cikk elemre kattintva megtekinthetővé válik a cikk tartalma
 
-10. Profilkép hozzáadása: a beállításokban lehetőség van URL alapján elérhető képet beállítani profilképnek
+10. Szerző követése: egy cikk megtekintésekor lehetőség van a cikk szerzőjének követésére
 
-11.  Személyes adatok változtatása: a beállításokban lehetőség van a regisztrációkor megadott adatok, tehát a
+11. Cikk kedvelése: egy cikk megtekintésekor lehetőség van kedvelni a cikket
+
+12. Kommentelés: egy cikk megtekintésekor lehetőség van kommentelni a tartalomhoz
+
+13. Főoldalra navigálás: lehetőség van a főoldalra navigálni a Home/Conduit gombok használatával
+
+14. Profilkép hozzáadása: a beállításokban lehetőség van URL alapján elérhető képet beállítani profilképnek
+
+15.  Személyes adatok változtatása: a beállításokban lehetőség van a regisztrációkor megadott adatok, tehát a
 felhasználónév, az e-mail cím, illetve a jelszó megváltoztatására
 
