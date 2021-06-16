@@ -11,19 +11,18 @@ címke megadásával
 
 5. Cikkek törlése: Tartalom létrehozása és megtekintése után lehetőség van a saját tartalmaink törlésére
 
-4. Címkézés: Cikkek létrehozásakor lehetőség van a tartalom címkézésére, illetve a címkézett tartalmak listázásánál azok
+6. Címkézés: Cikkek létrehozásakor lehetőség van a tartalom címkézésére, illetve a címkézett tartalmak listázásánál azok
 szűrésére a címkék alapján
 
-5. Cikkek megtekintése: bejelentkezett felhasználóként a főoldalon lehetőség van megtekinteni a magunk vagy mások által
+7. Cikkek megtekintése: bejelentkezett felhasználóként a főoldalon lehetőség van megtekinteni a magunk vagy mások által
 létrehozott tartalmakat kilistázott formában
 
-6. Cikkek kilistázása szerző alapján: egy szerző nevére kattintva kilistázásra kerülnek az általa létrehozott tartalmak
+8. Cikkek kilistázása szerző alapján: egy szerző nevére kattintva kilistázásra kerülnek az általa létrehozott tartalmak
 
-7. Kommentelés: Egy cikk megtekintésekor lehetőség van kommentelni a tartalomhoz
+9. Kommentelés: Egy cikk megtekintésekor lehetőség van kommentelni a tartalomhoz
 
-8. Profilkép hozzáadása: a beállításokban lehetőség van URL alapján elérhető képet beállítani profilképnek
+10. Profilkép hozzáadása: a beállításokban lehetőség van URL alapján elérhető képet beállítani profilképnek
 
-9.  Személyes adatok változtatása: a beállításokban lehetőség van a regisztrációkor megadott adatok, tehát a
+11.  Személyes adatok változtatása: a beállításokban lehetőség van a regisztrációkor megadott adatok, tehát a
 felhasználónév, az e-mail cím, illetve a jelszó megváltoztatására
 
-10.
