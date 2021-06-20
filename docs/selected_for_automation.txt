@@ -1,4 +1,4 @@
-Conduit applikáció funkciói:
+Functions selected for automation:
 
 1. Regisztráció: az alkalmazásba be lehet regisztrálni, név, e-mail cím és jelszó megadásával
 
@@ -10,12 +10,6 @@ címke megadásával
 4. Cikk szerkesztése: Tartalom létrehozása és megtekintése után lehetőség van a saját tartalmaink szerkesztésére
 
 5. Cikk törlése: Tartalom létrehozása és megtekintése után lehetőség van a saját tartalmaink törlésére
-
-6. Címkézés: Cikkek létrehozásakor lehetőség van a tartalom címkézésére, illetve a címkézett tartalmak listázásánál azok
-szűrésére a címkék alapján
-
-7. Cikkek kilistázása: bejelentkezett felhasználóként a főoldalon lehetőség van megtekinteni a magunk vagy mások által
-létrehozott tartalmakat kilistázott formában
 
 8. Cikkeket listázó oldal lapozása
 
@@ -37,4 +31,3 @@ létrehozott tartalmakat kilistázott formában
 
 17.  Személyes adatok változtatása: a beállításokban lehetőség van a regisztrációkor megadott adatok, tehát a
 felhasználónév, az e-mail cím, illetve a jelszó megváltoztatására
-
