@@ -4,26 +4,26 @@
     "name" : "test.test_main",
     "children" : [ {
       "name" : "test__registration",
-      "uid" : "3c32908dfb18acdb",
+      "uid" : "b45ac538488117dc",
       "parentUid" : "e4dbb62a652d34ec3c125466047cff93",
       "status" : "passed",
       "time" : {
-        "start" : 1628687257686,
-        "stop" : 1628687268780,
-        "duration" : 11094
+        "start" : 1628688099700,
+        "stop" : 1628688110684,
+        "duration" : 10984
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     }, {
-      "name" : "test__list_articles",
-      "uid" : "d48a9e08a70cb092",
+      "name" : "test__pagination",
+      "uid" : "3fa6c215e5fe51bf",
       "parentUid" : "e4dbb62a652d34ec3c125466047cff93",
       "status" : "passed",
       "time" : {
-        "start" : 1628687271385,
-        "stop" : 1628687285877,
-        "duration" : 14492
+        "start" : 1628688112640,
+        "stop" : 1628688127168,
+        "duration" : 14528
       },
       "flaky" : false,
       "newFailed" : false,
