@@ -3,6 +3,8 @@ import random
 import time
 import requests
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -110,6 +112,9 @@ def create_new_article(driver):
 ############################# Conduit Pytest Setup #############################
 class TestConduit(object):
     def setup(self):
+        driver_options = Options()
+        driver_options.headless = True
+        self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=driver_options)
         self.driver = webdriver.Chrome("C:\\Windows\\chromedriver.exe")
         self.driver.get("http://localhost:1667/#/")
 
