@@ -115,7 +115,6 @@ class TestConduit(object):
         driver_options = Options()
         driver_options.headless = True
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=driver_options)
-        self.driver = webdriver.Chrome("C:\\Windows\\chromedriver.exe")
         self.driver.get("http://localhost:1667/#/")
 
     def teardown(self):
