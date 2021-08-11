@@ -1,5 +1,5 @@
 {
-  "05b1792a6fed0256953482b844c6f018" : {
+  "e44c6fda09dc6b56d20fdf4fa6bc4dce" : {
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -9,13 +9,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "49b0cca213aa1523",
-      "reportUrl" : "https://KZsZs.github.io/conduit/20//#testresult/49b0cca213aa1523",
+      "uid" : "d48a9e08a70cb092",
+      "reportUrl" : "https://KZsZs.github.io/conduit/21//#testresult/d48a9e08a70cb092",
       "status" : "passed",
       "time" : {
-        "start" : 1628686920075,
-        "stop" : 1628686941044,
-        "duration" : 20969
+        "start" : 1628687271385,
+        "stop" : 1628687285877,
+        "duration" : 14492
       }
     } ]
   },
@@ -29,13 +29,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "a5011de8329ce4a3",
-      "reportUrl" : "https://KZsZs.github.io/conduit/20//#testresult/a5011de8329ce4a3",
+      "uid" : "3c32908dfb18acdb",
+      "reportUrl" : "https://KZsZs.github.io/conduit/21//#testresult/3c32908dfb18acdb",
       "status" : "passed",
       "time" : {
-        "start" : 1628686906692,
-        "stop" : 1628686917299,
-        "duration" : 10607
+        "start" : 1628687257686,
+        "stop" : 1628687268780,
+        "duration" : 11094
       }
     } ]
   }
