@@ -1,12 +1,12 @@
 {
-  "uid" : "687c37d10399a65c",
+  "uid" : "7a7f0c0e6012d158",
   "name" : "test__registration",
   "fullName" : "test.test_main.TestConduit#test__registration",
   "historyId" : "e20d4e90329a4748f3ea2c3efac08355",
   "time" : {
-    "start" : 1628676212259,
-    "stop" : 1628676225695,
-    "duration" : 13436
+    "start" : 1628676679047,
+    "stop" : 1628676691529,
+    "duration" : 12482
   },
   "status" : "passed",
   "flaky" : false,
@@ -16,21 +16,21 @@
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "a009519aa08a660b",
+      "uid" : "fedd139c0f9b5d0f",
       "name" : "log",
-      "source" : "a009519aa08a660b.txt",
+      "source" : "fedd139c0f9b5d0f.txt",
       "type" : "text/plain",
       "size" : 642
     }, {
-      "uid" : "756bb6dde0f33cd6",
+      "uid" : "d673a1fae40635b3",
       "name" : "stdout",
-      "source" : "756bb6dde0f33cd6.txt",
+      "source" : "d673a1fae40635b3.txt",
       "type" : "text/plain",
       "size" : 32
     }, {
-      "uid" : "89b3936927658e6b",
+      "uid" : "88b95bfeeadbe50f",
       "name" : "stderr",
-      "source" : "89b3936927658e6b.txt",
+      "source" : "88b95bfeeadbe50f.txt",
       "type" : "text/plain",
       "size" : 435
     } ],
@@ -52,10 +52,10 @@
     "value" : "TestConduit"
   }, {
     "name" : "host",
-    "value" : "fv-az39-330"
+    "value" : "fv-az83-587"
   }, {
     "name" : "thread",
-    "value" : "3848-MainThread"
+    "value" : "3909-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -79,6 +79,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "687c37d10399a65c.json",
+  "source" : "7a7f0c0e6012d158.json",
   "parameterValues" : [ ]
 }

@@ -9,14 +9,14 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "78f5d46c40bcd521",
-      "reportUrl" : "https://KZsZs.github.io/conduit/12//#testresult/78f5d46c40bcd521",
+      "uid" : "5c8e0b8afc35839d",
+      "reportUrl" : "https://KZsZs.github.io/conduit/13//#testresult/5c8e0b8afc35839d",
       "status" : "broken",
       "statusDetails" : "selenium.common.exceptions.TimeoutException: Message:",
       "time" : {
-        "start" : 1628676228322,
-        "stop" : 1628676245795,
-        "duration" : 17473
+        "start" : 1628676694202,
+        "stop" : 1628676711735,
+        "duration" : 17533
       }
     } ]
   },
@@ -30,13 +30,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "687c37d10399a65c",
-      "reportUrl" : "https://KZsZs.github.io/conduit/12//#testresult/687c37d10399a65c",
+      "uid" : "7a7f0c0e6012d158",
+      "reportUrl" : "https://KZsZs.github.io/conduit/13//#testresult/7a7f0c0e6012d158",
       "status" : "passed",
       "time" : {
-        "start" : 1628676212259,
-        "stop" : 1628676225695,
-        "duration" : 13436
+        "start" : 1628676679047,
+        "stop" : 1628676691529,
+        "duration" : 12482
       }
     } ]
   }
