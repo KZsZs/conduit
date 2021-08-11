@@ -1,0 +1,26 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.TimeoutException: Message:",
+      "children" : [ {
+        "name" : "test__login",
+        "uid" : "78f5d46c40bcd521",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628676228322,
+          "stop" : 1628676245795,
+          "duration" : 17473
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "31bb78a6a95ede3f78b260ed048910d8"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
