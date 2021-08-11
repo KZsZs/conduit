@@ -311,66 +311,66 @@ class TestConduit(object):
     #
     # ############################# Test 8 - Delete Article #############################
     #
-    def test__delete_article(self):
-        accept_cookies(self.driver)
-        logging_in(self.driver)
-        article_button = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
-        ).click()
-        time.sleep(2)
-        article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
-        article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
-        article_text = find_xpath(self.driver, '//textarea')
-        article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
-        article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
-        article_title.click()
-        article_title.send_keys("NewArticleToDelete")
-        article_about.click()
-        article_about.send_keys("About to delete")
-        article_text.click()
-        article_text.send_keys("Text to delete")
-        article_tags.click()
-        article_tags.send_keys("Tag to delete")
-        find_xpath(self.driver, "//html").click()
-        time.sleep(2)
-        article_publish_button.click()
-        time.sleep(2)
-        title_of_article_to_delete = find_xpath(self.driver, '//h1')
-        print(title_of_article_to_delete.text)
-        main_window = self.driver.window_handles[0]
-        delete_article_button = find_xpath(self.driver, '//button[@class = "btn btn-outline-danger btn-sm"]')
-        delete_article_button.click()
-        time.sleep(2)
-        self.driver.execute_script("window.open('http://localhost:1667/#/articles/newarticletodelete')")
-        deleted_article_window = self.driver.window_handles[1]
-        self.driver.switch_to.window(deleted_article_window)
-        time.sleep(2)
-        deleted_article_title = find_xpath(self.driver, '//h1')
-        assert deleted_article_title.text == ''
-        self.driver.close()
-        self.driver.switch_to.window(main_window)
-
-        print("Test 8 - Deleting Article successful")
+    # def test__delete_article(self):
+    #     accept_cookies(self.driver)
+    #     logging_in(self.driver)
+    #     article_button = WebDriverWait(self.driver, 10).until(
+    #         EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
+    #     ).click()
+    #     time.sleep(2)
+    #     article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
+    #     article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
+    #     article_text = find_xpath(self.driver, '//textarea')
+    #     article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
+    #     article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
+    #     article_title.click()
+    #     article_title.send_keys("NewArticleToDelete")
+    #     article_about.click()
+    #     article_about.send_keys("About to delete")
+    #     article_text.click()
+    #     article_text.send_keys("Text to delete")
+    #     article_tags.click()
+    #     article_tags.send_keys("Tag to delete")
+    #     find_xpath(self.driver, "//html").click()
+    #     time.sleep(2)
+    #     article_publish_button.click()
+    #     time.sleep(2)
+    #     title_of_article_to_delete = find_xpath(self.driver, '//h1')
+    #     print(title_of_article_to_delete.text)
+    #     main_window = self.driver.window_handles[0]
+    #     delete_article_button = find_xpath(self.driver, '//button[@class = "btn btn-outline-danger btn-sm"]')
+    #     delete_article_button.click()
+    #     time.sleep(2)
+    #     self.driver.execute_script("window.open('http://localhost:1667/#/articles/newarticletodelete')")
+    #     deleted_article_window = self.driver.window_handles[1]
+    #     self.driver.switch_to.window(deleted_article_window)
+    #     time.sleep(2)
+    #     deleted_article_title = find_xpath(self.driver, '//h1')
+    #     assert deleted_article_title.text == ''
+    #     self.driver.close()
+    #     self.driver.switch_to.window(main_window)
+    #
+    #     print("Test 8 - Deleting Article successful")
     #
     # ############################# Test 9 - Save article to document #############################
     #
-    # def test__save_to_file(self):
-    #     accept_cookies(self.driver)
-    #     logging_in(self.driver)
-    #     create_new_article(self.driver)
-    #     article_title = find_xpath(self.driver, '//*[@id="app"]/div/div[1]/div/h1')
-    #     article_author = find_xpath(self.driver, '//a[@class="author"]')
-    #     article_text = find_xpath(self.driver, '//*[@id="app"]/div/div[2]/div[1]/div/div[1]/p')
-    #     article_tag = find_xpath(self.driver, '//a[@class="tag-pill tag-default"]')
-    #     article_data = [article_title, article_author, article_text, article_tag]
-    #     with open("article_data.txt", 'w') as file_write:
-    #         for i in range(4):
-    #             file_write.write(article_data[i].text + '\n')
-    #     with open("article_data.txt", 'r') as file_read:
-    #         for i in range(4):
-    #             read_lines = file_read.readline()
-    #             assert read_lines == (article_data[i].text + '\n')
-    #     print("Test 9 - Save article to document successful")
+    def test__save_to_file(self):
+        accept_cookies(self.driver)
+        logging_in(self.driver)
+        create_new_article(self.driver)
+        article_title = find_xpath(self.driver, '//*[@id="app"]/div/div[1]/div/h1')
+        article_author = find_xpath(self.driver, '//a[@class="author"]')
+        article_text = find_xpath(self.driver, '//*[@id="app"]/div/div[2]/div[1]/div/div[1]/p')
+        article_tag = find_xpath(self.driver, '//a[@class="tag-pill tag-default"]')
+        article_data = [article_title, article_author, article_text, article_tag]
+        with open("article_data.txt", 'w') as file_write:
+            for i in range(4):
+                file_write.write(article_data[i].text + '\n')
+        with open("article_data.txt", 'r') as file_read:
+            for i in range(4):
+                read_lines = file_read.readline()
+                assert read_lines == (article_data[i].text + '\n')
+        print("Test 9 - Save article to document successful")
     #
     # ############################# Test 10 - List Articles #############################
     #
