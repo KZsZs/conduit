@@ -32,7 +32,7 @@ def webwait_by_id(driver, seconds, id_data):
 
 
 def accept_cookies(driver):
-    cookie_panel = WebDriverWait(driver, 5).until(
+    cookie_panel = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, 'cookie-policy-panel'))
     )
     accept_cookie_button = driver.find_element_by_xpath(
@@ -47,11 +47,11 @@ def logging_out(driver):
 
 
 def logging_in(driver):
-    sign_in_button = WebDriverWait(driver, 5).until(
+    sign_in_button = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, '//a[@href="#/login"]'))
     )
     sign_in_button.click()
-    login_email_field = WebDriverWait(driver, 5).until(
+    login_email_field = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, '//input[@placeholder="Email"]'))
     )
     login_password_field = driver.find_element_by_xpath('//input[@placeholder="Password"]')
@@ -71,7 +71,7 @@ def logging_in(driver):
 
 
 def click_new_article(driver):
-    article_button = WebDriverWait(driver, 5).until(
+    article_button = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
     ).click()
     time.sleep(2)
@@ -84,7 +84,7 @@ def click_new_article(driver):
 
 
 def create_new_article(driver):
-    article_button = WebDriverWait(driver, 5).until(
+    article_button = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
     ).click()
     time.sleep(2)
@@ -137,7 +137,7 @@ class TestConduit(object):
     ############################# Test 2 - Accepting Cookies #############################
 
     def test__accepting_cookies(self):
-        cookie_panel = webwait_by_id(self.driver, 5, 'cookie-policy-panel')
+        cookie_panel = webwait_by_id(self.driver, 10, 'cookie-policy-panel')
         accept_cookie_button = self.driver.find_element_by_xpath(
             '//button[@class="cookie__bar__buttons__button cookie__bar__buttons__button--accept"]')
         accept_cookie_button.click()
@@ -172,7 +172,7 @@ class TestConduit(object):
         password_field.send_keys(password)
         time.sleep(2)
         register_button.click()
-        webwait_by_xpath(self.driver, 5, '//div[text()="Your registration was successful!"]')
+        webwait_by_xpath(self.driver, 10, '//div[text()="Your registration was successful!"]')
         registration_text = find_xpath(self.driver, '//div[text()="Your registration was successful!"]')
         assert registration_text.text == "Your registration was successful!"
 
@@ -184,11 +184,11 @@ class TestConduit(object):
     ############################# Test 4 - Logging in #############################
     def test__login(self):
         accept_cookies(self.driver)
-        sign_in_button = WebDriverWait(self.driver, 5).until(
+        sign_in_button = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//a[@href="#/login"]'))
         )
         sign_in_button.click()
-        login_email_field = WebDriverWait(self.driver, 5).until(
+        login_email_field = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//input[@placeholder="Email"]'))
         )
         login_password_field = self.driver.find_element_by_xpath('//input[@placeholder="Password"]')
@@ -204,8 +204,8 @@ class TestConduit(object):
                 login_password_field.send_keys(row[2])
                 login_button.click()
                 break
-        time.sleep(2)
-        log_out_button = WebDriverWait(self.driver, 5).until(
+        time.sleep(5)
+        log_out_button = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"Log out")]'))
         )
         assert log_out_button.text == " Log out"
@@ -216,7 +216,7 @@ class TestConduit(object):
     def test__create_article(self):
         accept_cookies(self.driver)
         logging_in(self.driver)
-        new_article_button = WebDriverWait(self.driver, 5).until(
+        new_article_button = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
         ).click()
         time.sleep(2)
@@ -227,7 +227,7 @@ class TestConduit(object):
         article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
         article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
 
-        with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
+        with open("test/articles.csv", "r", encoding='utf-8') as csvfile_read:
             csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
             next(csvreader)
             for row in csvreader:
@@ -299,7 +299,7 @@ class TestConduit(object):
         edit_article_button = find_xpath(self.driver, '//a[@class = "btn btn-sm btn-outline-secondary"]')
         edit_article_button.click()
 
-        title_field = webwait_by_xpath(self.driver, 5, '//input[@placeholder = "Article Title"]')
+        title_field = webwait_by_xpath(self.driver, 10, '//input[@placeholder = "Article Title"]')
         text_field_to_edit = find_xpath(self.driver, '//textarea')
         article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
         text_field_to_edit.clear()
@@ -318,7 +318,7 @@ class TestConduit(object):
     def test__delete_article(self):
         accept_cookies(self.driver)
         logging_in(self.driver)
-        article_button = WebDriverWait(self.driver, 5).until(
+        article_button = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
         ).click()
         time.sleep(2)
@@ -381,7 +381,7 @@ class TestConduit(object):
     def test__list_articles(self):
         accept_cookies(self.driver)
         logging_in(self.driver)
-        user_button = WebDriverWait(self.driver, 5).until(
+        user_button = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/nav/div/ul/li[4]/a'))
         )
         user_button.click()
@@ -398,7 +398,7 @@ class TestConduit(object):
     def test__pagination(self):
         accept_cookies(self.driver)
         logging_in(self.driver)
-        user_button = WebDriverWait(self.driver, 5).until(
+        user_button = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/nav/div/ul/li[4]/a'))
         )
         user_button.click()
@@ -417,13 +417,13 @@ class TestConduit(object):
     def test__logout(self):
         accept_cookies(self.driver)
         logging_in(self.driver)
-        log_out_button = WebDriverWait(self.driver, 5).until(
+        log_out_button = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"Log out")]'))
         )
 
         assert log_out_button.text == " Log out"
         log_out_button.click()
-        sign_up_field = WebDriverWait(self.driver, 5).until(
+        sign_up_field = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//a[@href="#/register"]'))
         )
         assert sign_up_field.text == "Sign up"
