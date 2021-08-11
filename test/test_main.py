@@ -209,83 +209,83 @@ class TestConduit(object):
     #     print("Test 4 - Logging in successful")
 
     ############################# Test 5 - Create Article #############################
-    def test__create_article(self):
-        accept_cookies(self.driver)
-        logging_in(self.driver)
-        new_article_button = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
-        ).click()
-        time.sleep(2)
-        assert self.driver.current_url == "http://localhost:1667/#/editor"
-        article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
-        article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
-        article_text = find_xpath(self.driver, '//textarea')
-        article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
-        article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
-
-        with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
-            csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
-            next(csvreader)
-            for row in csvreader:
-                title = row[0]
-                article_title.click()
-                article_title.send_keys(row[0])
-                article_about.click()
-                article_about.send_keys(row[1])
-                article_text.click()
-                article_text.send_keys(row[2])
-                article_tags.click()
-                article_tags.send_keys(row[3])
-                break
-
-        find_xpath(self.driver, "//html").click()
-        time.sleep(2)
-        article_publish_button.click()
-        article_url = "http://localhost:1667/#/articles/" + title.lower()
-        time.sleep(2)
-        assert self.driver.current_url == article_url
-
-        print("Test 5 - Creating an article successful")
-    #
-    # ############################# Test 6 - Repeated article creation #############################
-    #
-    # def test__repeated_article_creation(self):
+    # def test__create_article(self):
     #     accept_cookies(self.driver)
     #     logging_in(self.driver)
+    #     new_article_button = WebDriverWait(self.driver, 10).until(
+    #         EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
+    #     ).click()
+    #     time.sleep(2)
+    #     assert self.driver.current_url == "http://localhost:1667/#/editor"
+    #     article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
+    #     article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
+    #     article_text = find_xpath(self.driver, '//textarea')
+    #     article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
+    #     article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
+    #
     #     with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
     #         csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
     #         next(csvreader)
-    #         for i in range(5):
-    #             click_new_article(self.driver)
-    #             article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
-    #             article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
-    #             article_text = find_xpath(self.driver, '//textarea')
-    #             article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
-    #             article_publish_button = find_xpath(self.driver,
-    #                                                 "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
-    #             for row in csvreader:
-    #                 title = row[0]
-    #                 article_title.click()
-    #                 article_title.send_keys(row[0])
-    #                 article_about.click()
-    #                 article_about.send_keys(row[1])
-    #                 article_text.click()
-    #                 article_text.send_keys(row[2])
-    #                 article_tags.click()
-    #                 article_tags.send_keys(row[3])
-    #                 last_title = row[0]
-    #                 break
-    #             find_xpath(self.driver, "//html").click()
-    #             time.sleep(2)
-    #             article_publish_button.click()
-    #     time.sleep(2)
-    #     last_article_url = "http://localhost:1667/#/articles/" + last_title.lower()
-    #     print(last_article_url)
-    #     time.sleep(2)
-    #     assert self.driver.current_url == last_article_url
+    #         for row in csvreader:
+    #             title = row[0]
+    #             article_title.click()
+    #             article_title.send_keys(row[0])
+    #             article_about.click()
+    #             article_about.send_keys(row[1])
+    #             article_text.click()
+    #             article_text.send_keys(row[2])
+    #             article_tags.click()
+    #             article_tags.send_keys(row[3])
+    #             break
     #
-    #     print("Test 6 - Creating articles from file successful")
+    #     find_xpath(self.driver, "//html").click()
+    #     time.sleep(2)
+    #     article_publish_button.click()
+    #     article_url = "http://localhost:1667/#/articles/" + title.lower()
+    #     time.sleep(2)
+    #     assert self.driver.current_url == article_url
     #
+    #     print("Test 5 - Creating an article successful")
+
+    # ############################# Test 6 - Repeated article creation #############################
+
+    def test__repeated_article_creation(self):
+        accept_cookies(self.driver)
+        logging_in(self.driver)
+        with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
+            csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
+            next(csvreader)
+            for i in range(5):
+                click_new_article(self.driver)
+                article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
+                article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
+                article_text = find_xpath(self.driver, '//textarea')
+                article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
+                article_publish_button = find_xpath(self.driver,
+                                                    "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
+                for row in csvreader:
+                    title = row[0]
+                    article_title.click()
+                    article_title.send_keys(row[0])
+                    article_about.click()
+                    article_about.send_keys(row[1])
+                    article_text.click()
+                    article_text.send_keys(row[2])
+                    article_tags.click()
+                    article_tags.send_keys(row[3])
+                    last_title = row[0]
+                    break
+                find_xpath(self.driver, "//html").click()
+                time.sleep(2)
+                article_publish_button.click()
+        time.sleep(2)
+        last_article_url = "http://localhost:1667/#/articles/" + last_title.lower()
+        print(last_article_url)
+        time.sleep(2)
+        assert self.driver.current_url == last_article_url
+
+        print("Test 6 - Creating articles from file successful")
+
     # ############################# Test 7 - Editing Article #############################
     #
     # def test__editing_article(self):
