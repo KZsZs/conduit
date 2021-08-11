@@ -128,24 +128,24 @@ class TestConduit(object):
         self.driver.quit()
 
     ############################# Test 1 - Page Load successful #############################
-    # def test__page_load(self):
-    #     r = requests.get("http://localhost:1667/#/")
-    #     assert int(r.status_code) == 200
-    #     page_title = find_xpath(self.driver, '//title')
-    #     assert page_title.get_attribute("text") == "Conduit"
-    #     print("Test 1 - Page load successful")
-    #
+    def test__page_load(self):
+        r = requests.get("http://localhost:1667/#/")
+        assert int(r.status_code) == 200
+        page_title = find_xpath(self.driver, '//title')
+        assert page_title.get_attribute("text") == "Conduit"
+        print("Test 1 - Page load successful")
+
     # ############################# Test 2 - Accepting Cookies #############################
-    #
-    # def test__accepting_cookies(self):
-    #     cookie_panel = webwait_by_id(self.driver, 10, 'cookie-policy-panel')
-    #     accept_cookie_button = self.driver.find_element_by_xpath(
-    #         '//button[@class="cookie__bar__buttons__button cookie__bar__buttons__button--accept"]')
-    #     accept_cookie_button.click()
-    #     time.sleep(2)
-    #     assert self.driver.find_elements_by_id('cookie-policy-panel') == []
-    #
-    #     print("Test 2 - Cookies accepted!")
+
+    def test__accepting_cookies(self):
+        cookie_panel = webwait_by_id(self.driver, 10, 'cookie-policy-panel')
+        accept_cookie_button = self.driver.find_element_by_xpath(
+            '//button[@class="cookie__bar__buttons__button cookie__bar__buttons__button--accept"]')
+        accept_cookie_button.click()
+        time.sleep(2)
+        assert self.driver.find_elements_by_id('cookie-policy-panel') == []
+
+        print("Test 2 - Cookies accepted!")
 
     ############################# Test 3 - Registration #############################
     def test__registration(self):
@@ -168,23 +168,7 @@ class TestConduit(object):
                 password_field.send_keys(row[2])
                 register_button.click()
                 break
-        # random_number = random.randint(0, 1000)
-        # username = "user" + str(random_number)
-        # email = username + "@gmail.com"
-        # password = "ABCdefg123"
-        # with open("user_data.csv", "a", newline='', encoding='utf-8') as csvfile:
-        #     user_writer = csv.writer(csvfile, delimiter=',')
-        #     user_writer.writerow([username, email, password])
-        # username_field.click()
-        # username_field.send_keys(username)
-        # time.sleep(2)
-        # email_field.click()
-        # email_field.send_keys(email)
-        # time.sleep(2)
-        # password_field.click()
-        # password_field.send_keys(password)
-        # time.sleep(2)
-        # register_button.click()
+
         webwait_by_xpath(self.driver, 10, '//div[text()="Your registration was successful!"]')
         registration_text = find_xpath(self.driver, '//div[text()="Your registration was successful!"]')
         assert registration_text.text == "Your registration was successful!"
