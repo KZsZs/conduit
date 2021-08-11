@@ -156,23 +156,35 @@ class TestConduit(object):
         email_field = find_xpath(self.driver, '//input[@placeholder="Email"]')
         password_field = find_xpath(self.driver, '//input[@placeholder="Password"]')
         register_button = find_xpath(self.driver, '//button[@class="btn btn-lg btn-primary pull-xs-right"]')
-        random_number = random.randint(0, 1000)
-        username = "user" + str(random_number)
-        email = username + "@gmail.com"
-        password = "ABCdefg123"
-        with open("user_data.csv", "a", newline='', encoding='utf-8') as csvfile:
-            user_writer = csv.writer(csvfile, delimiter=',')
-            user_writer.writerow([username, email, password])
-        username_field.click()
-        username_field.send_keys(username)
-        time.sleep(2)
-        email_field.click()
-        email_field.send_keys(email)
-        time.sleep(2)
-        password_field.click()
-        password_field.send_keys(password)
-        time.sleep(2)
-        register_button.click()
+        with open("user_data.csv", "r", encoding='utf-8') as csvfile_read:
+            csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
+            next(csvreader)
+            for row in csvreader:
+                username_field.click()
+                username_field.send_keys(row[0])
+                email_field.click()
+                email_field.send_keys(row[1])
+                password_field.click()
+                password_field.send_keys(row[2])
+                register_button.click()
+                break
+        # random_number = random.randint(0, 1000)
+        # username = "user" + str(random_number)
+        # email = username + "@gmail.com"
+        # password = "ABCdefg123"
+        # with open("user_data.csv", "a", newline='', encoding='utf-8') as csvfile:
+        #     user_writer = csv.writer(csvfile, delimiter=',')
+        #     user_writer.writerow([username, email, password])
+        # username_field.click()
+        # username_field.send_keys(username)
+        # time.sleep(2)
+        # email_field.click()
+        # email_field.send_keys(email)
+        # time.sleep(2)
+        # password_field.click()
+        # password_field.send_keys(password)
+        # time.sleep(2)
+        # register_button.click()
         webwait_by_xpath(self.driver, 10, '//div[text()="Your registration was successful!"]')
         registration_text = find_xpath(self.driver, '//div[text()="Your registration was successful!"]')
         assert registration_text.text == "Your registration was successful!"
