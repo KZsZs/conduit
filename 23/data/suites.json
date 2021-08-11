@@ -8,26 +8,26 @@
         "name" : "TestConduit",
         "children" : [ {
           "name" : "test__registration",
-          "uid" : "b45ac538488117dc",
+          "uid" : "3200da7660555640",
           "parentUid" : "e6cbaa8b610e0eaa5f4c68d36a41c30e",
           "status" : "passed",
           "time" : {
-            "start" : 1628688099700,
-            "stop" : 1628688110684,
-            "duration" : 10984
+            "start" : 1628688370071,
+            "stop" : 1628688381362,
+            "duration" : 11291
           },
           "flaky" : false,
           "newFailed" : false,
           "parameters" : [ ]
         }, {
-          "name" : "test__pagination",
-          "uid" : "3fa6c215e5fe51bf",
+          "name" : "test__logout",
+          "uid" : "25afca97bbf75086",
           "parentUid" : "e6cbaa8b610e0eaa5f4c68d36a41c30e",
           "status" : "passed",
           "time" : {
-            "start" : 1628688112640,
-            "stop" : 1628688127168,
-            "duration" : 14528
+            "start" : 1628688383965,
+            "stop" : 1628688398385,
+            "duration" : 14420
           },
           "flaky" : false,
           "newFailed" : false,
