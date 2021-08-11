@@ -374,39 +374,34 @@ class TestConduit(object):
     #
     # ############################# Test 10 - List Articles #############################
     #
-    def test__list_articles(self):
-        accept_cookies(self.driver)
-        logging_in(self.driver)
-        user_button = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/nav/div/ul/li[4]/a'))
-        )
-        user_button.click()
-        preview_list = self.driver.find_elements_by_xpath('//a[@class="preview-link"]')
-        number_of_article_previews = len(preview_list)
-        number_of_articles = 0
-        for article in preview_list:
-            number_of_articles += 1
-        assert number_of_articles == number_of_article_previews
-        print("Test 10 - Listing Content successful")
-    #
-    # ############################# Test 11 - Pagination #############################
-    #
-    # def test__pagination(self):
+    # def test__list_articles(self):
     #     accept_cookies(self.driver)
     #     logging_in(self.driver)
     #     user_button = WebDriverWait(self.driver, 10).until(
     #         EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/nav/div/ul/li[4]/a'))
     #     )
     #     user_button.click()
-    #     time.sleep(2)
-    #     article_page_list = self.driver.find_elements_by_class_name("page-link")
-    #     last_page_number = 0
-    #     for page in article_page_list:
-    #         page.click()
-    #         last_page_number = int(page.text)
-    #     assert last_page_number == len(article_page_list)
+    #     preview_list = self.driver.find_elements_by_xpath('//a[@class="preview-link"]')
+    #     number_of_article_previews = len(preview_list)
+    #     number_of_articles = 0
+    #     for article in preview_list:
+    #         number_of_articles += 1
+    #     assert number_of_articles == number_of_article_previews
+    #     print("Test 10 - Listing Content successful")
     #
-    #     print("Test 11 - Pagination successful!")
+    # ############################# Test 11 - Pagination #############################
+    #
+    def test__pagination(self):
+        accept_cookies(self.driver)
+        logging_in(self.driver)
+        article_page_list = self.driver.find_elements_by_class_name("page-link")
+        last_page_number = 0
+        for page in article_page_list:
+            page.click()
+            last_page_number = int(page.text)
+        assert last_page_number == len(article_page_list)
+
+        print("Test 11 - Pagination successful!")
     #
     # ############################# Test 12 - Log out #############################
     #
