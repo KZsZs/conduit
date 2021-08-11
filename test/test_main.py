@@ -391,32 +391,32 @@ class TestConduit(object):
     #
     # ############################# Test 11 - Pagination #############################
     #
-    def test__pagination(self):
-        accept_cookies(self.driver)
-        logging_in(self.driver)
-        article_page_list = self.driver.find_elements_by_class_name("page-link")
-        last_page_number = 0
-        for page in article_page_list:
-            page.click()
-            last_page_number = int(page.text)
-        assert last_page_number == len(article_page_list)
-
-        print("Test 11 - Pagination successful!")
+    # def test__pagination(self):
+    #     accept_cookies(self.driver)
+    #     logging_in(self.driver)
+    #     article_page_list = self.driver.find_elements_by_class_name("page-link")
+    #     last_page_number = 0
+    #     for page in article_page_list:
+    #         page.click()
+    #         last_page_number = int(page.text)
+    #     assert last_page_number == len(article_page_list)
+    #
+    #     print("Test 11 - Pagination successful!")
     #
     # ############################# Test 12 - Log out #############################
     #
-    # def test__logout(self):
-    #     accept_cookies(self.driver)
-    #     logging_in(self.driver)
-    #     log_out_button = webwait_by_xpath(self.driver, 5, '//*[@class="nav-link" and contains(text(),"Log out")]')
-    #     # log_out_button = WebDriverWait(self.driver, 10).until(
-    #     #     EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"Log out")]'))
-    #     # )
-    #
-    #     assert log_out_button.text == " Log out"
-    #     log_out_button.click()
-    #     sign_up_field = WebDriverWait(self.driver, 10).until(
-    #         EC.presence_of_element_located((By.XPATH, '//a[@href="#/register"]'))
-    #     )
-    #     assert sign_up_field.text == "Sign up"
-    #     print("Test 12 - Logging out successful")
+    def test__logout(self):
+        accept_cookies(self.driver)
+        logging_in(self.driver)
+        log_out_button = webwait_by_xpath(self.driver, 5, '//*[@class="nav-link" and contains(text(),"Log out")]')
+        # log_out_button = WebDriverWait(self.driver, 10).until(
+        #     EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"Log out")]'))
+        # )
+
+        assert log_out_button.text == " Log out"
+        log_out_button.click()
+        sign_up_field = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, '//a[@href="#/register"]'))
+        )
+        assert sign_up_field.text == "Sign up"
+        print("Test 12 - Logging out successful")
