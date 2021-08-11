@@ -33,13 +33,11 @@ def webwait_by_id(driver, seconds, id_data):
 
 
 def accept_cookies(driver):
-    cookie_panel = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, 'cookie-policy-panel'))
-    )
+    time.sleep(3)
     accept_cookie_button = driver.find_element_by_xpath(
         '//button[@class="cookie__bar__buttons__button cookie__bar__buttons__button--accept"]')
     accept_cookie_button.click()
-    time.sleep(2)
+    time.sleep(3)
 
 
 def logging_out(driver):
@@ -48,6 +46,7 @@ def logging_out(driver):
 
 
 def logging_in(driver):
+    time.sleep(3)
     sign_in_button = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, '//a[@href="#/login"]'))
     )
@@ -58,7 +57,7 @@ def logging_in(driver):
     login_password_field = driver.find_element_by_xpath('//input[@placeholder="Password"]')
     login_email_field.click()
     login_button = driver.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]')
-    with open("../user_data.csv", "r", encoding='utf-8') as csvfile_read:
+    with open("user_data.csv", "r", encoding='utf-8') as csvfile_read:
         csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
         next(csvreader)
         for row in csvreader:
@@ -68,7 +67,7 @@ def logging_in(driver):
             login_password_field.send_keys(row[2])
             login_button.click()
             break
-    time.sleep(2)
+    time.sleep(5)
 
 
 def click_new_article(driver):
@@ -128,24 +127,24 @@ class TestConduit(object):
         self.driver.quit()
 
     ############################# Test 1 - Page Load successful #############################
-    def test__page_load(self):
-        r = requests.get("http://localhost:1667/#/")
-        assert int(r.status_code) == 200
-        page_title = find_xpath(self.driver, '//title')
-        assert page_title.get_attribute("text") == "Conduit"
-        print("Test 1 - Page load successful")
+    # def test__page_load(self):
+    #     r = requests.get("http://localhost:1667/#/")
+    #     assert int(r.status_code) == 200
+    #     page_title = find_xpath(self.driver, '//title')
+    #     assert page_title.get_attribute("text") == "Conduit"
+    #     print("Test 1 - Page load successful")
 
     # ############################# Test 2 - Accepting Cookies #############################
 
-    def test__accepting_cookies(self):
-        cookie_panel = webwait_by_id(self.driver, 10, 'cookie-policy-panel')
-        accept_cookie_button = self.driver.find_element_by_xpath(
-            '//button[@class="cookie__bar__buttons__button cookie__bar__buttons__button--accept"]')
-        accept_cookie_button.click()
-        time.sleep(2)
-        assert self.driver.find_elements_by_id('cookie-policy-panel') == []
-
-        print("Test 2 - Cookies accepted!")
+    # def test__accepting_cookies(self):
+    #     cookie_panel = webwait_by_id(self.driver, 10, 'cookie-policy-panel')
+    #     accept_cookie_button = self.driver.find_element_by_xpath(
+    #         '//button[@class="cookie__bar__buttons__button cookie__bar__buttons__button--accept"]')
+    #     accept_cookie_button.click()
+    #     time.sleep(2)
+    #     assert self.driver.find_elements_by_id('cookie-policy-panel') == []
+    #
+    #     print("Test 2 - Cookies accepted!")
 
     ############################# Test 3 - Registration #############################
     def test__registration(self):
@@ -179,74 +178,74 @@ class TestConduit(object):
         print("Test 3 - Registration succesful")
 
     ############################# Test 4 - Logging in #############################
-    def test__login(self):
-        accept_cookies(self.driver)
-        sign_in_button = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//a[@href="#/login"]'))
-        )
-        sign_in_button.click()
-        login_email_field = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//input[@placeholder="Email"]'))
-        )
-        login_password_field = self.driver.find_element_by_xpath('//input[@placeholder="Password"]')
-        login_email_field.click()
-        login_button = self.driver.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]')
-        with open("user_data.csv", "r", encoding='utf-8') as csvfile_read:
-            csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
-            next(csvreader)
-            for row in csvreader:
-                login_email_field.click()
-                login_email_field.send_keys(row[1])
-                login_password_field.click()
-                login_password_field.send_keys(row[2])
-                login_button.click()
-                break
-        time.sleep(5)
-        log_out_button = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"Log out")]'))
-        )
-        assert log_out_button.text == " Log out"
-
-        print("Test 4 - Logging in successful")
-
-    ############################# Test 5 - Create Article #############################
-    # def test__create_article(self):
+    # def test__login(self):
     #     accept_cookies(self.driver)
-    #     logging_in(self.driver)
-    #     new_article_button = WebDriverWait(self.driver, 10).until(
-    #         EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
-    #     ).click()
-    #     time.sleep(2)
-    #     assert self.driver.current_url == "http://localhost:1667/#/editor"
-    #     article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
-    #     article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
-    #     article_text = find_xpath(self.driver, '//textarea')
-    #     article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
-    #     article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
-    #
-    #     with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
+    #     sign_in_button = WebDriverWait(self.driver, 10).until(
+    #         EC.presence_of_element_located((By.XPATH, '//a[@href="#/login"]'))
+    #     )
+    #     sign_in_button.click()
+    #     login_email_field = WebDriverWait(self.driver, 10).until(
+    #         EC.presence_of_element_located((By.XPATH, '//input[@placeholder="Email"]'))
+    #     )
+    #     login_password_field = self.driver.find_element_by_xpath('//input[@placeholder="Password"]')
+    #     login_email_field.click()
+    #     login_button = self.driver.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]')
+    #     with open("user_data.csv", "r", encoding='utf-8') as csvfile_read:
     #         csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
     #         next(csvreader)
     #         for row in csvreader:
-    #             title = row[0]
-    #             article_title.click()
-    #             article_title.send_keys(row[0])
-    #             article_about.click()
-    #             article_about.send_keys(row[1])
-    #             article_text.click()
-    #             article_text.send_keys(row[2])
-    #             article_tags.click()
-    #             article_tags.send_keys(row[3])
+    #             login_email_field.click()
+    #             login_email_field.send_keys(row[1])
+    #             login_password_field.click()
+    #             login_password_field.send_keys(row[2])
+    #             login_button.click()
     #             break
+    #     time.sleep(5)
+    #     log_out_button = WebDriverWait(self.driver, 10).until(
+    #         EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"Log out")]'))
+    #     )
+    #     assert log_out_button.text == " Log out"
     #
-    #     find_xpath(self.driver, "//html").click()
-    #     time.sleep(2)
-    #     article_publish_button.click()
-    #     article_url = "http://localhost:1667/#/articles/" + title.lower()
-    #     time.sleep(2)
-    #     assert self.driver.current_url == article_url
-    #
-    #     print("Test 5 - Creating an article successful")
+    #     print("Test 4 - Logging in successful")
+
+    ############################# Test 5 - Create Article #############################
+    def test__create_article(self):
+        accept_cookies(self.driver)
+        logging_in(self.driver)
+        new_article_button = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
+        ).click()
+        time.sleep(2)
+        assert self.driver.current_url == "http://localhost:1667/#/editor"
+        article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
+        article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
+        article_text = find_xpath(self.driver, '//textarea')
+        article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
+        article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
+
+        with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
+            csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
+            next(csvreader)
+            for row in csvreader:
+                title = row[0]
+                article_title.click()
+                article_title.send_keys(row[0])
+                article_about.click()
+                article_about.send_keys(row[1])
+                article_text.click()
+                article_text.send_keys(row[2])
+                article_tags.click()
+                article_tags.send_keys(row[3])
+                break
+
+        find_xpath(self.driver, "//html").click()
+        time.sleep(2)
+        article_publish_button.click()
+        article_url = "http://localhost:1667/#/articles/" + title.lower()
+        time.sleep(2)
+        assert self.driver.current_url == article_url
+
+        print("Test 5 - Creating an article successful")
     #
     # ############################# Test 6 - Repeated article creation #############################
     #
