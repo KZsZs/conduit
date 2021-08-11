@@ -1,0 +1,35 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "test.test_main",
+    "children" : [ {
+      "name" : "test__registration",
+      "uid" : "87c2e55c75ed9ed6",
+      "parentUid" : "e4dbb62a652d34ec3c125466047cff93",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628685246110,
+        "stop" : 1628685256760,
+        "duration" : 10650
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test__create_article",
+      "uid" : "2f331e1835476d2f",
+      "parentUid" : "e4dbb62a652d34ec3c125466047cff93",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628685259562,
+        "stop" : 1628685280529,
+        "duration" : 20967
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "test.test_main"
+  } ],
+  "name" : "packages"
+}
