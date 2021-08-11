@@ -1,0 +1,21 @@
+[ {
+  "uid" : "4edc4a88bd8981df",
+  "name" : "test__repeated_article_creation",
+  "time" : {
+    "start" : 1628685652337,
+    "stop" : 1628685703957,
+    "duration" : 51620
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d1e4f571d8f9d797",
+  "name" : "test__registration",
+  "time" : {
+    "start" : 1628685639173,
+    "stop" : 1628685649696,
+    "duration" : 10523
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

@@ -1,0 +1,2 @@
+http://localhost:1667/#/articles/testtitl5
+Test 6 - Creating articles from file successful
