@@ -354,40 +354,40 @@ class TestConduit(object):
     #
     # ############################# Test 9 - Save article to document #############################
     #
-    def test__save_to_file(self):
-        accept_cookies(self.driver)
-        logging_in(self.driver)
-        create_new_article(self.driver)
-        article_title = find_xpath(self.driver, '//*[@id="app"]/div/div[1]/div/h1')
-        article_author = find_xpath(self.driver, '//a[@class="author"]')
-        article_text = find_xpath(self.driver, '//*[@id="app"]/div/div[2]/div[1]/div/div[1]/p')
-        article_tag = find_xpath(self.driver, '//a[@class="tag-pill tag-default"]')
-        article_data = [article_title, article_author, article_text, article_tag]
-        with open("article_data.txt", 'w') as file_write:
-            for i in range(4):
-                file_write.write(article_data[i].text + '\n')
-        with open("article_data.txt", 'r') as file_read:
-            for i in range(4):
-                read_lines = file_read.readline()
-                assert read_lines == (article_data[i].text + '\n')
-        print("Test 9 - Save article to document successful")
+    # def test__save_to_file(self):
+    #     accept_cookies(self.driver)
+    #     logging_in(self.driver)
+    #     create_new_article(self.driver)
+    #     article_title = find_xpath(self.driver, '//*[@id="app"]/div/div[1]/div/h1')
+    #     article_author = find_xpath(self.driver, '//a[@class="author"]')
+    #     article_text = find_xpath(self.driver, '//*[@id="app"]/div/div[2]/div[1]/div/div[1]/p')
+    #     article_tag = find_xpath(self.driver, '//a[@class="tag-pill tag-default"]')
+    #     article_data = [article_title, article_author, article_text, article_tag]
+    #     with open("article_data.txt", 'w') as file_write:
+    #         for i in range(4):
+    #             file_write.write(article_data[i].text + '\n')
+    #     with open("article_data.txt", 'r') as file_read:
+    #         for i in range(4):
+    #             read_lines = file_read.readline()
+    #             assert read_lines == (article_data[i].text + '\n')
+    #     print("Test 9 - Save article to document successful")
     #
     # ############################# Test 10 - List Articles #############################
     #
-    # def test__list_articles(self):
-    #     accept_cookies(self.driver)
-    #     logging_in(self.driver)
-    #     user_button = WebDriverWait(self.driver, 10).until(
-    #         EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/nav/div/ul/li[4]/a'))
-    #     )
-    #     user_button.click()
-    #     preview_list = self.driver.find_elements_by_xpath('//a[@class="preview-link"]')
-    #     number_of_article_previews = len(preview_list)
-    #     number_of_articles = 0
-    #     for article in preview_list:
-    #         number_of_articles += 1
-    #     assert number_of_articles == number_of_article_previews
-    #     print("Test 10 - Listing Content successful")
+    def test__list_articles(self):
+        accept_cookies(self.driver)
+        logging_in(self.driver)
+        user_button = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/nav/div/ul/li[4]/a'))
+        )
+        user_button.click()
+        preview_list = self.driver.find_elements_by_xpath('//a[@class="preview-link"]')
+        number_of_article_previews = len(preview_list)
+        number_of_articles = 0
+        for article in preview_list:
+            number_of_articles += 1
+        assert number_of_articles == number_of_article_previews
+        print("Test 10 - Listing Content successful")
     #
     # ############################# Test 11 - Pagination #############################
     #
