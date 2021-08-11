@@ -38,10 +38,12 @@ def accept_cookies(driver):
     accept_cookie_button = driver.find_element_by_xpath(
         '//button[@class="cookie__bar__buttons__button cookie__bar__buttons__button--accept"]')
     accept_cookie_button.click()
+    time.sleep(2)
 
 
 def logging_out(driver):
     driver.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]').click()
+    time.sleep(2)
 
 
 def logging_in(driver):
@@ -65,6 +67,7 @@ def logging_in(driver):
             login_password_field.send_keys(row[2])
             login_button.click()
             break
+    time.sleep(2)
 
 
 def click_new_article(driver):
@@ -77,6 +80,7 @@ def click_new_article(driver):
     article_text = find_xpath(driver, '//textarea')
     article_tags = find_xpath(driver, '//input[@placeholder = "Enter tags"]')
     article_publish_button = find_xpath(driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
+    time.sleep(2)
 
 
 def create_new_article(driver):
@@ -107,6 +111,7 @@ def create_new_article(driver):
     find_xpath(driver, "//html").click()
     time.sleep(2)
     article_publish_button.click()
+    time.sleep(2)
 
 
 ############################# Conduit Pytest Setup #############################
@@ -179,7 +184,6 @@ class TestConduit(object):
     ############################# Test 4 - Logging in #############################
     def test__login(self):
         accept_cookies(self.driver)
-        time.sleep(2)
         sign_in_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//a[@href="#/login"]'))
         )
@@ -200,6 +204,7 @@ class TestConduit(object):
                 login_password_field.send_keys(row[2])
                 login_button.click()
                 break
+        time.sleep(2)
         log_out_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"Log out")]'))
         )
@@ -210,9 +215,7 @@ class TestConduit(object):
     ############################# Test 5 - Create Article #############################
     def test__create_article(self):
         accept_cookies(self.driver)
-        time.sleep(2)
         logging_in(self.driver)
-        time.sleep(2)
         new_article_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
         ).click()
@@ -252,9 +255,7 @@ class TestConduit(object):
 
     def test__repeated_article_creation(self):
         accept_cookies(self.driver)
-        time.sleep(2)
         logging_in(self.driver)
-        time.sleep(2)
         with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
             csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
             next(csvreader)
@@ -293,11 +294,8 @@ class TestConduit(object):
 
     def test__editing_article(self):
         accept_cookies(self.driver)
-        time.sleep(2)
         logging_in(self.driver)
-        time.sleep(2)
         create_new_article(self.driver)
-        time.sleep(2)
         edit_article_button = find_xpath(self.driver, '//a[@class = "btn btn-sm btn-outline-secondary"]')
         edit_article_button.click()
 
@@ -319,9 +317,7 @@ class TestConduit(object):
 
     def test__delete_article(self):
         accept_cookies(self.driver)
-        time.sleep(2)
         logging_in(self.driver)
-        time.sleep(2)
         article_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
         ).click()
@@ -364,11 +360,8 @@ class TestConduit(object):
 
     def test__save_to_file(self):
         accept_cookies(self.driver)
-        time.sleep(2)
         logging_in(self.driver)
-        time.sleep(2)
         create_new_article(self.driver)
-        time.sleep(2)
         article_title = find_xpath(self.driver, '//*[@id="app"]/div/div[1]/div/h1')
         article_author = find_xpath(self.driver, '//a[@class="author"]')
         article_text = find_xpath(self.driver, '//*[@id="app"]/div/div[2]/div[1]/div/div[1]/p')
@@ -387,9 +380,7 @@ class TestConduit(object):
 
     def test__list_articles(self):
         accept_cookies(self.driver)
-        time.sleep(2)
         logging_in(self.driver)
-        time.sleep(2)
         user_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/nav/div/ul/li[4]/a'))
         )
@@ -406,9 +397,7 @@ class TestConduit(object):
 
     def test__pagination(self):
         accept_cookies(self.driver)
-        time.sleep(2)
         logging_in(self.driver)
-        time.sleep(2)
         user_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/nav/div/ul/li[4]/a'))
         )
@@ -427,9 +416,7 @@ class TestConduit(object):
 
     def test__logout(self):
         accept_cookies(self.driver)
-        time.sleep(2)
         logging_in(self.driver)
-        time.sleep(2)
         log_out_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"Log out")]'))
         )
