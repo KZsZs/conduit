@@ -160,7 +160,7 @@ class TestConduit(object):
         username = "user" + str(random_number)
         email = username + "@gmail.com"
         password = "ABCdefg123"
-        with open("user_data.csv", "a", newline='', encoding='utf-8') as csvfile:
+        with open("conduit/test/user_data.csv", "a", newline='', encoding='utf-8') as csvfile:
             user_writer = csv.writer(csvfile, delimiter=',')
             user_writer.writerow([username, email, password])
         username_field.click()
@@ -195,7 +195,7 @@ class TestConduit(object):
         login_password_field = self.driver.find_element_by_xpath('//input[@placeholder="Password"]')
         login_email_field.click()
         login_button = self.driver.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]')
-        with open("user_data.csv", "r", encoding='utf-8') as csvfile_read:
+        with open("conduit/test/user_data.csv", "r", encoding='utf-8') as csvfile_read:
             csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
             next(csvreader)
             for row in csvreader:
