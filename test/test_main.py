@@ -29,37 +29,17 @@ def webwait_by_id(driver, seconds, id_data):
     )
 
 
+def accept_cookies(driver):
+    cookie_panel = WebDriverWait(driver, 5).until(
+        EC.presence_of_element_located((By.ID, 'cookie-policy-panel'))
+    )
+    accept_cookie_button = driver.find_element_by_xpath(
+        '//button[@class="cookie__bar__buttons__button cookie__bar__buttons__button--accept"]')
+    accept_cookie_button.click()
+
+
 def logging_out(driver):
     driver.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]').click()
-
-
-def registration(driver):
-    sign_up_field = driver.find_element_by_xpath('//a[@href="#/register"]').click()
-    username_field = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.XPATH, '//input[@placeholder="Username"]'))
-    )
-    email_field = driver.find_element_by_xpath('//input[@placeholder="Email"]')
-    password_field = driver.find_element_by_xpath('//input[@placeholder="Password"]')
-    register_button = driver.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]')
-    random_number = random.randint(0, 1000)
-    username = "user" + str(random_number)
-    email = username + "@gmail.com"
-    password = "ABCdefg123"
-    with open("user_data.csv", "a", newline='', encoding='utf-8') as csvfile:
-        user_writer = csv.writer(csvfile, delimiter=',')
-        user_writer.writerow([username, email, password])
-    username_field.click()
-    username_field.send_keys(username)
-    time.sleep(2)
-    email_field.click()
-    email_field.send_keys(username + "@gmail.com")
-    time.sleep(2)
-    password_field.click()
-    password_field.send_keys(password)
-    time.sleep(2)
-    register_button.click()
-    ok_button = driver.find_element_by_xpath('//button[@class="swal-button swal-button--confirm"]')
-    ok_button.click()
 
 
 def logging_in(driver):
@@ -127,7 +107,7 @@ def create_new_article(driver):
     article_publish_button.click()
 
 
-############################# Conduit Pytest #############################
+############################# Conduit Pytest Setup #############################
 class TestConduit(object):
     def setup(self):
         self.driver = webdriver.Chrome("C:\\Windows\\chromedriver.exe")
@@ -136,8 +116,7 @@ class TestConduit(object):
     def teardown(self):
         self.driver.quit()
 
-
-############################# Test 1 - Page Load successful #############################
+    ############################# Test 1 - Page Load successful #############################
     def test__page_load(self):
         r = requests.get("http://localhost:1667/#/")
         assert int(r.status_code) == 200
@@ -145,8 +124,7 @@ class TestConduit(object):
         assert page_title.get_attribute("text") == "Conduit"
         print("Test 1 - Page load successful")
 
-
-############################# Test 2 - Accepting Cookies #############################
+    ############################# Test 2 - Accepting Cookies #############################
 
     def test__accepting_cookies(self):
         cookie_panel = webwait_by_id(self.driver, 5, 'cookie-policy-panel')
@@ -158,10 +136,9 @@ class TestConduit(object):
 
         print("Test 2 - Cookies accepted!")
 
-
-############################# Test 3 - Registration #############################
+    ############################# Test 3 - Registration #############################
     def test__registration(self):
-
+        accept_cookies(self.driver)
         signup_field = find_xpath(self.driver, '//a[@href="#/register"]')
         signup_field.click()
         username_field = find_xpath(self.driver, '//input[@placeholder="Username"]')
@@ -194,9 +171,9 @@ class TestConduit(object):
         ok_button.click()
         print("Test 3 - Registration succesful")
 
-############################# Test 4 - Logging in #############################
+    ############################# Test 4 - Logging in #############################
     def test__login(self):
-
+        accept_cookies(self.driver)
         sign_in_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//a[@href="#/login"]'))
         )
@@ -224,10 +201,9 @@ class TestConduit(object):
 
         print("Test 4 - Logging in successful")
 
-
-############################# Test 5 - Create Article #############################
+    ############################# Test 5 - Create Article #############################
     def test__create_article(self):
-
+        accept_cookies(self.driver)
         logging_in(self.driver)
         new_article_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
@@ -264,11 +240,10 @@ class TestConduit(object):
 
         print("Test 5 - Creating an article successful")
 
-
-############################# Test 6 - Repeated article creation #############################
+    ############################# Test 6 - Repeated article creation #############################
 
     def test__repeated_article_creation(self):
-
+        accept_cookies(self.driver)
         logging_in(self.driver)
         with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
             csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
@@ -279,7 +254,8 @@ class TestConduit(object):
                 article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
                 article_text = find_xpath(self.driver, '//textarea')
                 article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
-                article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
+                article_publish_button = find_xpath(self.driver,
+                                                    "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
                 for row in csvreader:
                     title = row[0]
                     article_title.click()
@@ -303,11 +279,10 @@ class TestConduit(object):
 
         print("Test 6 - Creating articles from file successful")
 
-
-############################# Test 7 - Editing Article #############################
+    ############################# Test 7 - Editing Article #############################
 
     def test__editing_article(self):
-
+        accept_cookies(self.driver)
         logging_in(self.driver)
         create_new_article(self.driver)
         time.sleep(2)
@@ -328,11 +303,10 @@ class TestConduit(object):
 
         print("Test 7 - Editting article successful")
 
-
-############################# Test 8 - Delete Article #############################
+    ############################# Test 8 - Delete Article #############################
 
     def test__delete_article(self):
-
+        accept_cookies(self.driver)
         logging_in(self.driver)
         article_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"New Article")]'))
@@ -372,11 +346,10 @@ class TestConduit(object):
 
         print("Test 8 - Deleting Article successful")
 
-
-############################# Test 9 - Save article to document #############################
+    ############################# Test 9 - Save article to document #############################
 
     def test__save_to_file(self):
-
+        accept_cookies(self.driver)
         logging_in(self.driver)
         create_new_article(self.driver)
         time.sleep(2)
@@ -394,11 +367,10 @@ class TestConduit(object):
                 assert read_lines == (article_data[i].text + '\n')
         print("Test 9 - Save article to document successful")
 
-
-############################# Test 10 - List Articles #############################
+    ############################# Test 10 - List Articles #############################
 
     def test__list_articles(self):
-
+        accept_cookies(self.driver)
         logging_in(self.driver)
         time.sleep(2)
         user_button = WebDriverWait(self.driver, 5).until(
@@ -413,11 +385,10 @@ class TestConduit(object):
         assert number_of_articles == number_of_article_previews
         print("Test 10 - Listing Content successful")
 
-
-############################# Test 11 - Pagination #############################
+    ############################# Test 11 - Pagination #############################
 
     def test__pagination(self):
-
+        accept_cookies(self.driver)
         logging_in(self.driver)
         user_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/nav/div/ul/li[4]/a'))
@@ -433,11 +404,10 @@ class TestConduit(object):
 
         print("Test 11 - Pagination successful!")
 
-
-############################# Test 12 - Log out #############################
+    ############################# Test 12 - Log out #############################
 
     def test__logout(self):
-
+        accept_cookies(self.driver)
         logging_in(self.driver)
         log_out_button = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@class="nav-link" and contains(text(),"Log out")]'))
