@@ -1,0 +1,86 @@
+{
+  "uid" : "af2e9b28349d879b",
+  "name" : "test__repeated_article_creation",
+  "fullName" : "test.test_main.TestConduit#test__repeated_article_creation",
+  "historyId" : "50e0661c549e4b8d96fe01018caed7c4",
+  "time" : {
+    "start" : 1628669538116,
+    "stop" : 1628669542341,
+    "duration" : 4225
+  },
+  "status" : "broken",
+  "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'articles.csv'",
+  "statusTrace" : "self = <test_main.TestConduit object at 0x7f3ca658c0a0>\n\n    def test__repeated_article_creation(self):\n        accept_cookies(self.driver)\n        time.sleep(2)\n        logging_in(self.driver)\n        time.sleep(2)\n>       with open(\"articles.csv\", \"r\", encoding='utf-8') as csvfile_read:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'articles.csv'\n\ntest/test_main.py:258: FileNotFoundError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'articles.csv'",
+    "statusTrace" : "self = <test_main.TestConduit object at 0x7f3ca658c0a0>\n\n    def test__repeated_article_creation(self):\n        accept_cookies(self.driver)\n        time.sleep(2)\n        logging_in(self.driver)\n        time.sleep(2)\n>       with open(\"articles.csv\", \"r\", encoding='utf-8') as csvfile_read:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'articles.csv'\n\ntest/test_main.py:258: FileNotFoundError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "f7caf0d67b02d7d9",
+      "name" : "log",
+      "source" : "f7caf0d67b02d7d9.txt",
+      "type" : "text/plain",
+      "size" : 344
+    }, {
+      "uid" : "4d21621548219237",
+      "name" : "stderr",
+      "source" : "4d21621548219237.txt",
+      "type" : "text/plain",
+      "size" : 215
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test"
+  }, {
+    "name" : "suite",
+    "value" : "test_main"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestConduit"
+  }, {
+    "name" : "host",
+    "value" : "fv-az83-587"
+  }, {
+    "name" : "thread",
+    "value" : "3929-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test.test_main"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "af2e9b28349d879b.json",
+  "parameterValues" : [ ]
+}
