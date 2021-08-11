@@ -1,0 +1,134 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.TimeoutException: Message:",
+      "children" : [ {
+        "name" : "test__login",
+        "uid" : "463ca54086eb0301",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628671014539,
+          "stop" : 1628671023859,
+          "duration" : 9320
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__create_article",
+        "uid" : "af799c2b20ed8921",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628671025595,
+          "stop" : 1628671034909,
+          "duration" : 9314
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__editing_article",
+        "uid" : "285f2a196cfe0cd0",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628671044531,
+          "stop" : 1628671053854,
+          "duration" : 9323
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__delete_article",
+        "uid" : "7535b91603527a11",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628671056572,
+          "stop" : 1628671065885,
+          "duration" : 9313
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__save_to_file",
+        "uid" : "58f0743ddd5b59f",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628671068603,
+          "stop" : 1628671077915,
+          "duration" : 9312
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__list_articles",
+        "uid" : "770660f044b0d447",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628671080635,
+          "stop" : 1628671089959,
+          "duration" : 9324
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__pagination",
+        "uid" : "fe604247dae381e7",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628671092685,
+          "stop" : 1628671102004,
+          "duration" : 9319
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__logout",
+        "uid" : "15a221b3d695d2e3",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628671104731,
+          "stop" : 1628671114060,
+          "duration" : 9329
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "31bb78a6a95ede3f78b260ed048910d8"
+    }, {
+      "name" : "FileNotFoundError: [Errno 2] No such file or directory: 'articles.csv'",
+      "children" : [ {
+        "name" : "test__repeated_article_creation",
+        "uid" : "c33109acdf6add04",
+        "parentUid" : "cd1538df89e2d2126968e5aa29884587",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628671037641,
+          "stop" : 1628671041818,
+          "duration" : 4177
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "cd1538df89e2d2126968e5aa29884587"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
