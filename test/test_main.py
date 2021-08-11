@@ -249,65 +249,65 @@ class TestConduit(object):
 
     # ############################# Test 6 - Repeated article creation #############################
 
-    def test__repeated_article_creation(self):
-        accept_cookies(self.driver)
-        logging_in(self.driver)
-        with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
-            csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
-            next(csvreader)
-            for i in range(5):
-                click_new_article(self.driver)
-                article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
-                article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
-                article_text = find_xpath(self.driver, '//textarea')
-                article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
-                article_publish_button = find_xpath(self.driver,
-                                                    "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
-                for row in csvreader:
-                    title = row[0]
-                    article_title.click()
-                    article_title.send_keys(row[0])
-                    article_about.click()
-                    article_about.send_keys(row[1])
-                    article_text.click()
-                    article_text.send_keys(row[2])
-                    article_tags.click()
-                    article_tags.send_keys(row[3])
-                    last_title = row[0]
-                    break
-                find_xpath(self.driver, "//html").click()
-                time.sleep(2)
-                article_publish_button.click()
-        time.sleep(2)
-        last_article_url = "http://localhost:1667/#/articles/" + last_title.lower()
-        print(last_article_url)
-        time.sleep(2)
-        assert self.driver.current_url == last_article_url
-
-        print("Test 6 - Creating articles from file successful")
+    # def test__repeated_article_creation(self):
+    #     accept_cookies(self.driver)
+    #     logging_in(self.driver)
+    #     with open("articles.csv", "r", encoding='utf-8') as csvfile_read:
+    #         csvreader = csv.reader(csvfile_read.readlines(), delimiter=',')
+    #         next(csvreader)
+    #         for i in range(5):
+    #             click_new_article(self.driver)
+    #             article_title = find_xpath(self.driver, '//input[@placeholder = "Article Title"]')
+    #             article_about = find_xpath(self.driver, "//input[@placeholder = \"What's this article about?\"]")
+    #             article_text = find_xpath(self.driver, '//textarea')
+    #             article_tags = find_xpath(self.driver, '//input[@placeholder = "Enter tags"]')
+    #             article_publish_button = find_xpath(self.driver,
+    #                                                 "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
+    #             for row in csvreader:
+    #                 title = row[0]
+    #                 article_title.click()
+    #                 article_title.send_keys(row[0])
+    #                 article_about.click()
+    #                 article_about.send_keys(row[1])
+    #                 article_text.click()
+    #                 article_text.send_keys(row[2])
+    #                 article_tags.click()
+    #                 article_tags.send_keys(row[3])
+    #                 last_title = row[0]
+    #                 break
+    #             find_xpath(self.driver, "//html").click()
+    #             time.sleep(2)
+    #             article_publish_button.click()
+    #     time.sleep(2)
+    #     last_article_url = "http://localhost:1667/#/articles/" + last_title.lower()
+    #     print(last_article_url)
+    #     time.sleep(2)
+    #     assert self.driver.current_url == last_article_url
+    #
+    #     print("Test 6 - Creating articles from file successful")
 
     # ############################# Test 7 - Editing Article #############################
     #
-    # def test__editing_article(self):
-    #     accept_cookies(self.driver)
-    #     logging_in(self.driver)
-    #     create_new_article(self.driver)
-    #     edit_article_button = find_xpath(self.driver, '//a[@class = "btn btn-sm btn-outline-secondary"]')
-    #     edit_article_button.click()
-    #
-    #     title_field = webwait_by_xpath(self.driver, 10, '//input[@placeholder = "Article Title"]')
-    #     text_field_to_edit = find_xpath(self.driver, '//textarea')
-    #     article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
-    #     text_field_to_edit.clear()
-    #     text_field_to_edit.click()
-    #     text_field_to_edit.send_keys("Editted test content")
-    #     text_field_to_edit.send_keys(Keys.ENTER)
-    #     article_publish_button.click()
-    #     time.sleep(2)
-    #     edited_content = find_xpath(self.driver, "//div[@class = 'row article-content']/div/div/p")
-    #     assert edited_content.text == "Editted test content"
-    #
-    #     print("Test 7 - Editting article successful")
+    def test__editing_article(self):
+        accept_cookies(self.driver)
+        logging_in(self.driver)
+        create_new_article(self.driver)
+        edit_article_button = find_xpath(self.driver, '//a[@class = "btn btn-sm btn-outline-secondary"]')
+        edit_article_button.click()
+        time.sleep(3)
+        # title_field = webwait_by_xpath(self.driver, 10, '//input[@placeholder = "Article Title"]')
+        text_field_to_edit = find_xpath(self.driver, '//textarea')
+        article_publish_button = find_xpath(self.driver, "//button[@class= 'btn btn-lg pull-xs-right btn-primary']")
+        text_field_to_edit.clear()
+        text_field_to_edit.click()
+        text_field_to_edit.send_keys("Edited test content")
+        text_field_to_edit.send_keys(Keys.ENTER)
+        article_publish_button.click()
+        time.sleep(2)
+        edited_content = find_xpath(self.driver, "//div[@class = 'row article-content']/div/div/p")
+        assert edited_content.text == "Edited test content"
+
+        print("Test 7 - Editing article successful")
     #
     # ############################# Test 8 - Delete Article #############################
     #
