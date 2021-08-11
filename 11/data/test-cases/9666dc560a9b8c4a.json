@@ -1,0 +1,86 @@
+{
+  "uid" : "9666dc560a9b8c4a",
+  "name" : "test__login",
+  "fullName" : "test.test_main.TestConduit#test__login",
+  "historyId" : "0c0274160b3715ff3dc8fd59f32302fe",
+  "time" : {
+    "start" : 1628675688925,
+    "stop" : 1628675691144,
+    "duration" : 2219
+  },
+  "status" : "broken",
+  "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'conduit/test/user_data.csv'",
+  "statusTrace" : "self = <test_main.TestConduit object at 0x7fbe92ae8040>\n\n    def test__login(self):\n        accept_cookies(self.driver)\n        sign_in_button = WebDriverWait(self.driver, 10).until(\n            EC.presence_of_element_located((By.XPATH, '//a[@href=\"#/login\"]'))\n        )\n        sign_in_button.click()\n        login_email_field = WebDriverWait(self.driver, 10).until(\n            EC.presence_of_element_located((By.XPATH, '//input[@placeholder=\"Email\"]'))\n        )\n        login_password_field = self.driver.find_element_by_xpath('//input[@placeholder=\"Password\"]')\n        login_email_field.click()\n        login_button = self.driver.find_element_by_xpath('//button[@class=\"btn btn-lg btn-primary pull-xs-right\"]')\n>       with open(\"conduit/test/user_data.csv\", \"r\", encoding='utf-8') as csvfile_read:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'conduit/test/user_data.csv'\n\ntest/test_main.py:198: FileNotFoundError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'conduit/test/user_data.csv'",
+    "statusTrace" : "self = <test_main.TestConduit object at 0x7fbe92ae8040>\n\n    def test__login(self):\n        accept_cookies(self.driver)\n        sign_in_button = WebDriverWait(self.driver, 10).until(\n            EC.presence_of_element_located((By.XPATH, '//a[@href=\"#/login\"]'))\n        )\n        sign_in_button.click()\n        login_email_field = WebDriverWait(self.driver, 10).until(\n            EC.presence_of_element_located((By.XPATH, '//input[@placeholder=\"Email\"]'))\n        )\n        login_password_field = self.driver.find_element_by_xpath('//input[@placeholder=\"Password\"]')\n        login_email_field.click()\n        login_button = self.driver.find_element_by_xpath('//button[@class=\"btn btn-lg btn-primary pull-xs-right\"]')\n>       with open(\"conduit/test/user_data.csv\", \"r\", encoding='utf-8') as csvfile_read:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'conduit/test/user_data.csv'\n\ntest/test_main.py:198: FileNotFoundError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "dd8ce5742de95038",
+      "name" : "log",
+      "source" : "dd8ce5742de95038.txt",
+      "type" : "text/plain",
+      "size" : 344
+    }, {
+      "uid" : "5b262e1846407b54",
+      "name" : "stderr",
+      "source" : "5b262e1846407b54.txt",
+      "type" : "text/plain",
+      "size" : 215
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test"
+  }, {
+    "name" : "suite",
+    "value" : "test_main"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestConduit"
+  }, {
+    "name" : "host",
+    "value" : "fv-az83-587"
+  }, {
+    "name" : "thread",
+    "value" : "3819-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test.test_main"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "9666dc560a9b8c4a.json",
+  "parameterValues" : [ ]
+}

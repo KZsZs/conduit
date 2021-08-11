@@ -1,0 +1,39 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "FileNotFoundError: [Errno 2] No such file or directory: 'conduit/test/user_data.csv'",
+      "children" : [ {
+        "name" : "test__registration",
+        "uid" : "3788ea87065c9bb",
+        "parentUid" : "93beddacfd5101ed3aadf3b398ccc46a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628675683866,
+          "stop" : 1628675686120,
+          "duration" : 2254
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__login",
+        "uid" : "9666dc560a9b8c4a",
+        "parentUid" : "93beddacfd5101ed3aadf3b398ccc46a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628675688925,
+          "stop" : 1628675691144,
+          "duration" : 2219
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "93beddacfd5101ed3aadf3b398ccc46a"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
