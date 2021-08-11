@@ -1,0 +1,2 @@
+NewArticleToDelete
+Test 8 - Deleting Article successful
