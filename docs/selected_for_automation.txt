@@ -1,33 +1,26 @@
 Functions selected for automation:
 
-1. Regisztráció: az alkalmazásba be lehet regisztrálni, név, e-mail cím és jelszó megadásával
+1. Oldal betöltése.
 
-2. Bejelentkezés: az alkalmazásba be lehet jelentkezni egy meglévő felhasználói fiókkal
+2. Sütik elfogadása.
 
-3. Cikk létrehozása: bejelentkezett felhasználóként lehetőség van új cikk létrehozására cím/téma/tartalom és
+3. Regisztráció: az alkalmazásba be lehet regisztrálni, név, e-mail cím és jelszó megadásával
+
+4. Bejelentkezés: az alkalmazásba be lehet jelentkezni egy meglévő felhasználói fiókkal
+
+5. Cikk létrehozása: bejelentkezett felhasználóként lehetőség van új cikk létrehozására cím/téma/tartalom és
 címke megadásával
 
-4. Cikk szerkesztése: Tartalom létrehozása és megtekintése után lehetőség van a saját tartalmaink szerkesztésére
+6. Cikk létrehozása dokumentumból
 
-5. Cikk törlése: Tartalom létrehozása és megtekintése után lehetőség van a saját tartalmaink törlésére
+7. Cikk szerkesztése: Tartalom létrehozása és megtekintése után lehetőség van a saját tartalmaink szerkesztésére
 
-8. Cikkeket listázó oldal lapozása
+8. Cikk törlése: Tartalom létrehozása és megtekintése után lehetőség van a saját tartalmaink törlésére
 
-9. Cikkek kilistázása címkék alapján
+9. Cikk tartalmának lementése dokumentumba
 
-10. Cikkek kilistázása szerző alapján: egy szerző nevére kattintva kilistázásra kerülnek az általa létrehozott tartalmak
+10. Cikkek kilistázása
 
-11. Cikk megtekintése: egy kilistázott cikk elemre kattintva megtekinthetővé válik a cikk tartalma
+11. Cikkeket listázó oldal lapozása
 
-11. Szerző követése: egy cikk megtekintésekor lehetőség van a cikk szerzőjének követésére
-
-13. Cikk kedvelése: egy cikk megtekintésekor lehetőség van kedvelni a cikket
-
-14. Kommentelés: egy cikk megtekintésekor lehetőség van kommentelni a tartalomhoz
-
-15. Főoldalra navigálás: lehetőség van a főoldalra navigálni a Home/Conduit gombok használatával
-
-16. Profilkép hozzáadása: a beállításokban lehetőség van URL alapján elérhető képet beállítani profilképnek
-
-17.  Személyes adatok változtatása: a beállításokban lehetőség van a regisztrációkor megadott adatok, tehát a
-felhasználónév, az e-mail cím, illetve a jelszó megváltoztatására
+12. Kijelentkezes.
